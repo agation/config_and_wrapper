@@ -1,0 +1,33 @@
+{
+  "name": "indexeddb-test",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^7.0.29",
+    "babel-core": "^6.22.1",
+    "babel-preset-es2015": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.0.0",
+    "browserify-shim": "^3.8.13",
+    "events": "^1.1.1",
+    "gulp": "^3.9.1",
+    "gulp-serve": "^1.4.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.0.1",
+    "gulp-util": "^3.0.8",
+    "tsify": "^2.0.3",
+    "typescript": "^2.0.10",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.9.0",
+    "reflect-metadata": "^0.1.10",
+    "inversify": "^4.1.1",
+    "inversify-inject-decorators": "^3.0.1"
+  }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test page</title>
+    <script src="bundle.one.js"></script>
+    <!--<script src="bundle.one.min.js"></script>-->
+
+    <!--<script src="bundle.two.js"></script>-->
+    <!--<script src="bundle.two.min.js"></script>-->
+
+    <!--<script src="bundle.default.js"></script>-->
+    <!--<script src="bundle.default.min.js"></script>-->
+
+
+
+    <script>
+
+        function test() {
+            var Landy = require('Landy');
+            window.Landy = Landy;
+            console.log('result require("Landy")', Landy);
+
+            Landy.config({connect: {limit: 7}});
+//            Landy.builder().connectLimit(7).build();
+
+            console.log('******************************************');
+            var sw = Landy.simpleWrapper();
+//            console.log('simpleWrapper getConfig', sw.getConfig());
+            console.log('simpleWrapper getConfig', JSON.stringify(sw.getConfig()));
+            sw.open('data for simple #1');
+            sw.open('data for simple #2');
+
+            console.log('******************************************');
+            var cw = Landy.coolWrapper({a: 'cool arg'});
+//            console.log('coolWrapper getConfig', cw.getConfig());
+            console.log('coolWrapper getConfig', JSON.stringify(cw.getConfig()));
+            cw.open('data for cool #1');
+            cw.open('data for cool #2');
+
+            console.log('******************************************');
+            var nw = Landy.niceWrapper({a: 'nice arg'});
+            console.log('niceWrapper getConfig', JSON.stringify(nw.getConfig()));
+            nw.open('data for nice #1');
+            nw.open('data for nice #2');
+
+//            Landy.config({connect: {limit: 3}});
+            Landy.builder().connectLimit(3).build();
+
+            console.log('niceWrapper getConfig', JSON.stringify(nw.getConfig()));
+        }
+
+        test();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
