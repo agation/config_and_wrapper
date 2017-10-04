@@ -1,16 +1,18 @@
 import Storage from "./storage";
-import {lazyInject} from "./container";
 import {types} from "./types";
+import {inject, injectable, postConstruct} from "inversify";
 
+@injectable()
 export class Landy {
 
-    @lazyInject(types.storage)
-    private storage: Storage;
+    @inject(types.storage)
+    private storage;
 
-    @lazyInject(types.config.connect)
+    @inject(types.config.connect)
     private config;
 
-    constructor() {
+    @postConstruct()
+    onInit() {
         console.log('landy created with config.connect', this.config)
     }
 

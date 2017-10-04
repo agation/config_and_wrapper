@@ -1,16 +1,18 @@
-import {injectable} from "inversify";
+import {inject, injectable, postConstruct} from "inversify";
 import {types} from "./types";
-import {lazyInject} from "./container";
+
+type Config = {cleanupTimeout: number};
 
 @injectable()
-class Storage {
+export default class Storage {
 
-    @lazyInject(types.config.storage)
+    @inject(types.config.storage)
     private config: any;
 
     private data = [];
 
-    constructor() {
+    @postConstruct()
+    onInit() {
         console.log('storage created with config', this.config);
     }
 
@@ -19,9 +21,7 @@ class Storage {
     }
 
     getAll() {
-        return this.data;
+        return Promise.resolve(this.data);
     }
 
 }
-
-export default Storage;

@@ -1,12 +1,8 @@
-import Configurator from "../configurator";
+import {OneConfig} from "./config";
+import {ExportObject} from "../exportObject";
+import {OneContainer} from "./container";
 
-let config: any = {
-    client: 'one plus one 4',
-    connect: {
-        limit: 10,
-    }
-};
+let exportObject = new ExportObject(new OneConfig(), OneContainer);
 
-let exportObject = new Configurator().clientConfig(config).exportObject();
 export = exportObject;
 

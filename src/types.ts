@@ -7,5 +7,10 @@ export const types = {
     },
 
     landy: 'landy',
-    storage: 'storage'
+    storage: 'storage',
+
+    serverConnect: 'serverConnect',
+    fakeServerList: 'fakeServerList',
+
+    serverConnectFactory: 'serverConnectFactory'
 };

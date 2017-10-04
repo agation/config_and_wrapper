@@ -1,26 +1,25 @@
 import {types} from "./types";
 import {Landy} from "./landy";
-import {lazyInject} from "./container";
-
+import {IFullConfig} from "./entrypoints/IFullConfig";
+import {DefaultContainer} from "./entrypoints/defaultContainer";
 
 export default class CoolWrapper {
 
-    @lazyInject(types.config.all)
     private config;
 
     private landy: Landy;
 
-    constructor(cool) {
+    constructor(container: DefaultContainer, cool) {
         console.log('CoolWrapper constructor', arguments);
-        this.landy = new Landy();
+
+        this.config = container.get<IFullConfig>(types.config.all);
+        this.landy = container.get<Landy>(types.landy);
     }
 
     public open(data) {
         console.log('cool wrapper open data', data);
         this.landy.setData(data);
-        let storedData = this.landy.getData();
-        console.log('all stored data:', storedData);
-        this.config.requireCallback()
+        this.landy.getData().then(storedData => console.log('all stored data:', storedData));
     }
 
     public getConfig() {

@@ -1,12 +1,8 @@
-import Configurator from "../configurator";
+import {ExportObject} from "../exportObject";
+import {TwoConfig} from "./config";
+import {DefaultContainer} from "../defaultContainer";
 
-let config: any = {
-    client: 'two',
-    connect: {
-        limit: 5,
-    }
-};
 
-let exportObject = new Configurator().clientConfig(config).exportObject();
+let exportObject = new ExportObject(new TwoConfig(), DefaultContainer);
 export = exportObject;
 
